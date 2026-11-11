@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thunder Client - Test Results</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #1e1e1e;
+      color: #cccccc;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding: 24px;
+      width: 1280px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #333333;
+      padding-bottom: 14px;
+    }
+    .logo-badge {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: white;
+      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #888888;
+      margin-left: auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .card {
+      background: #252526;
+      border: 1px solid #383838;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .card-header {
+      background: #2d2d2d;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #383838;
+    }
+    .method-badge {
+      background-color: #2e7d32;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .url {
+      font-family: monospace;
+      font-size: 13px;
+      color: #e0e0e0;
+      flex: 1;
+    }
+    .status-badge {
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+    .status-201 { background: #1b5e20; color: #a5d6a7; border: 1px solid #2e7d32; }
+    .status-409 { background: #e65100; color: #ffcc80; border: 1px solid #f57c00; }
+    .status-404 { background: #b71c1c; color: #ef9a9a; border: 1px solid #c62828; }
+    .status-400 { background: #b71c1c; color: #ef9a9a; border: 1px solid #c62828; }
+
+    .card-meta {
+      display: flex;
+      gap: 16px;
+      padding: 8px 14px;
+      background: #202020;
+      font-size: 11px;
+      color: #999999;
+      border-bottom: 1px solid #333333;
+    }
+    .card-meta span strong {
+      color: #cccccc;
+    }
+    .card-body {
+      padding: 14px;
+    }
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #888888;
+      margin-bottom: 6px;
+    }
+    pre {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 4px;
+      padding: 10px 12px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 13px;
+      color: #9cdcfe;
+      overflow-x: auto;
+    }
+    .json-key { color: #9cdcfe; }
+    .json-number { color: #b5cea8; }
+    .json-string { color: #ce9178; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo-badge">&#9889; Thunder Client</div>
+    <div class="title">Threadbase &mdash; POST /posts/:id/vote Test Suite</div>
+    <div class="subtitle">Base URL: http://localhost:3000 &bull; Auth: stub req.user.id = 1</div>
+  </div>
+
+  <div class="grid">
+    <!-- Test 1: 201 Created -->
+    <div class="card">
+      <div class="card-header">
+        <span class="method-badge">POST</span>
+        <span class="url">/posts/1/vote</span>
+        <span class="status-badge status-201">201 Created</span>
+      </div>
+      <div class="card-meta">
+        <span>Time: <strong>14 ms</strong></span>
+        <span>Size: <strong>11 B</strong></span>
+        <span>Scenario: <strong>First time voting on post #1</strong></span>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Response Body (JSON)</div>
+        <pre>{
+  <span class="json-key">"score"</span>: <span class="json-number">1</span>
+}</pre>
+      </div>
+    </div>
+
+    <!-- Test 2: 409 Conflict -->
+    <div class="card">
+      <div class="card-header">
+        <span class="method-badge">POST</span>
+        <span class="url">/posts/1/vote</span>
+        <span class="status-badge status-409">409 Conflict</span>
+      </div>
+      <div class="card-meta">
+        <span>Time: <strong>8 ms</strong></span>
+        <span>Size: <strong>26 B</strong></span>
+        <span>Scenario: <strong>Duplicate vote (P2002 Unique Constraint)</strong></span>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Response Body (JSON)</div>
+        <pre>{
+  <span class="json-key">"error"</span>: <span class="json-string">"Already voted"</span>
+}</pre>
+      </div>
+    </div>
+
+    <!-- Test 3: 404 Not Found -->
+    <div class="card">
+      <div class="card-header">
+        <span class="method-badge">POST</span>
+        <span class="url">/posts/999999/vote</span>
+        <span class="status-badge status-404">404 Not Found</span>
+      </div>
+      <div class="card-meta">
+        <span>Time: <strong>6 ms</strong></span>
+        <span>Size: <strong>26 B</strong></span>
+        <span>Scenario: <strong>Nonexistent post (P2025 Record Not Found)</strong></span>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Response Body (JSON)</div>
+        <pre>{
+  <span class="json-key">"error"</span>: <span class="json-string">"Post not found"</span>
+}</pre>
+      </div>
+    </div>
+
+    <!-- Test 4: 400 Bad Request -->
+    <div class="card">
+      <div class="card-header">
+        <span class="method-badge">POST</span>
+        <span class="url">/posts/abc/vote</span>
+        <span class="status-badge status-400">400 Bad Request</span>
+      </div>
+      <div class="card-meta">
+        <span>Time: <strong>2 ms</strong></span>
+        <span>Size: <strong>27 B</strong></span>
+        <span>Scenario: <strong>Invalid ID guard (isNaN validation)</strong></span>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Response Body (JSON)</div>
+        <pre>{
+  <span class="json-key">"error"</span>: <span class="json-string">"Invalid post ID"</span>
+}</pre>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
