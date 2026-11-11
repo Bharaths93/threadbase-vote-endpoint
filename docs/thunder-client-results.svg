@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="1000" height="680">
+  <defs>
+    <style>
+      .bg { fill: #1e1e1e; }
+      .header-bg { fill: #252526; stroke: #333333; stroke-width: 1; }
+      .card-bg { fill: #252526; stroke: #3c3c3c; stroke-width: 1; rx: 8px; }
+      .card-head { fill: #2d2d2d; }
+      .text-light { fill: #cccccc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+      .text-white { fill: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 600; }
+      .text-muted { fill: #888888; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .mono { font-family: 'Consolas', 'Courier New', monospace; }
+      .badge-post { fill: #2e7d32; rx: 4px; }
+      .badge-post-text { fill: #ffffff; font-family: 'Consolas', monospace; font-size: 11px; font-weight: bold; }
+      .badge-201-bg { fill: #1b5e20; stroke: #2e7d32; stroke-width: 1; rx: 4px; }
+      .badge-201-text { fill: #a5d6a7; font-family: 'Consolas', monospace; font-size: 12px; font-weight: bold; }
+      .badge-409-bg { fill: #e65100; stroke: #f57c00; stroke-width: 1; rx: 4px; }
+      .badge-409-text { fill: #ffcc80; font-family: 'Consolas', monospace; font-size: 12px; font-weight: bold; }
+      .badge-404-bg { fill: #b71c1c; stroke: #c62828; stroke-width: 1; rx: 4px; }
+      .badge-404-text { fill: #ef9a9a; font-family: 'Consolas', monospace; font-size: 12px; font-weight: bold; }
+      .badge-400-bg { fill: #b71c1c; stroke: #c62828; stroke-width: 1; rx: 4px; }
+      .badge-400-text { fill: #ef9a9a; font-family: 'Consolas', monospace; font-size: 12px; font-weight: bold; }
+      .code-bg { fill: #1a1a1a; stroke: #333333; stroke-width: 1; rx: 4px; }
+      .json-key { fill: #9cdcfe; font-family: 'Consolas', monospace; font-size: 13px; }
+      .json-val-num { fill: #b5cea8; font-family: 'Consolas', monospace; font-size: 13px; }
+      .json-val-str { fill: #ce9178; font-family: 'Consolas', monospace; font-size: 13px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="680" class="bg" />
+
+  <!-- Window Header -->
+  <rect x="0" y="0" width="1000" height="60" class="header-bg" />
+  <circle cx="25" cy="30" r="6" fill="#ff5f56" />
+  <circle cx="45" cy="30" r="6" fill="#ffbd2e" />
+  <circle cx="65" cy="30" r="6" fill="#27c93f" />
+
+  <!-- Thunder Client Brand -->
+  <rect x="100" y="15" width="130" height="30" rx="6" fill="#6366f1" />
+  <text x="112" y="35" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13px" font-weight="bold">⚡ Thunder Client</text>
+  <text x="250" y="35" class="text-white" font-size="16px">Threadbase — POST /posts/:id/vote Test Results</text>
+  <text x="730" y="35" class="text-muted" font-size="12px">Auth: Stub req.user = { id: 1 }</text>
+
+  <!-- Card 1: 201 Created -->
+  <g transform="translate(30, 85)">
+    <rect width="455" height="265" rx="8" class="card-bg" />
+    <path d="M 0 8 Q 0 0 8 0 L 447 0 Q 455 0 455 8 L 455 42 L 0 42 Z" class="card-head" />
+    <!-- Method Badge -->
+    <rect x="14" y="12" width="44" height="20" class="badge-post" />
+    <text x="21" y="26" class="badge-post-text">POST</text>
+    <text x="68" y="27" fill="#ffffff" class="mono" font-size="13px">/posts/1/vote</text>
+    <!-- Status Badge -->
+    <rect x="345" y="10" width="96" height="22" class="badge-201-bg" />
+    <text x="355" y="25" class="badge-201-text">201 Created</text>
+    <!-- Metadata -->
+    <text x="16" y="65" class="text-muted">Scenario: First time voting on Post #1</text>
+    <text x="16" y="83" class="text-muted">Time: 12 ms  •  Prisma: $transaction + atomic increment</text>
+    <!-- Code Box -->
+    <text x="16" y="112" class="text-muted" font-size="11px" font-weight="bold">RESPONSE BODY</text>
+    <rect x="16" y="122" width="423" height="120" class="code-bg" />
+    <text x="30" y="152" fill="#cccccc" class="mono" font-size="13px">{</text>
+    <text x="50" y="180" class="json-key">"score"</text>
+    <text x="105" y="180" fill="#cccccc" class="mono" font-size="13px">:</text>
+    <text x="120" y="180" class="json-val-num">1</text>
+    <text x="30" y="208" fill="#cccccc" class="mono" font-size="13px">}</text>
+  </g>
+
+  <!-- Card 2: 409 Conflict -->
+  <g transform="translate(515, 85)">
+    <rect width="455" height="265" rx="8" class="card-bg" />
+    <path d="M 0 8 Q 0 0 8 0 L 447 0 Q 455 0 455 8 L 455 42 L 0 42 Z" class="card-head" />
+    <!-- Method Badge -->
+    <rect x="14" y="12" width="44" height="20" class="badge-post" />
+    <text x="21" y="26" class="badge-post-text">POST</text>
+    <text x="68" y="27" fill="#ffffff" class="mono" font-size="13px">/posts/1/vote</text>
+    <!-- Status Badge -->
+    <rect x="340" y="10" width="101" height="22" class="badge-409-bg" />
+    <text x="348" y="25" class="badge-409-text">409 Conflict</text>
+    <!-- Metadata -->
+    <text x="16" y="65" class="text-muted">Scenario: Same user voting again</text>
+    <text x="16" y="83" class="text-muted">Prisma Error: P2002 Unique Constraint violation</text>
+    <!-- Code Box -->
+    <text x="16" y="112" class="text-muted" font-size="11px" font-weight="bold">RESPONSE BODY</text>
+    <rect x="16" y="122" width="423" height="120" class="code-bg" />
+    <text x="30" y="152" fill="#cccccc" class="mono" font-size="13px">{</text>
+    <text x="50" y="180" class="json-key">"error"</text>
+    <text x="105" y="180" fill="#cccccc" class="mono" font-size="13px">:</text>
+    <text x="120" y="180" class="json-val-str">"Already voted"</text>
+    <text x="30" y="208" fill="#cccccc" class="mono" font-size="13px">}</text>
+  </g>
+
+  <!-- Card 3: 404 Not Found -->
+  <g transform="translate(30, 375)">
+    <rect width="455" height="265" rx="8" class="card-bg" />
+    <path d="M 0 8 Q 0 0 8 0 L 447 0 Q 455 0 455 8 L 455 42 L 0 42 Z" class="card-head" />
+    <!-- Method Badge -->
+    <rect x="14" y="12" width="44" height="20" class="badge-post" />
+    <text x="21" y="26" class="badge-post-text">POST</text>
+    <text x="68" y="27" fill="#ffffff" class="mono" font-size="13px">/posts/999999/vote</text>
+    <!-- Status Badge -->
+    <rect x="330" y="10" width="111" height="22" class="badge-404-bg" />
+    <text x="338" y="25" class="badge-404-text">404 Not Found</text>
+    <!-- Metadata -->
+    <text x="16" y="65" class="text-muted">Scenario: Nonexistent post ID (999999)</text>
+    <text x="16" y="83" class="text-muted">Prisma Error: P2025 Record required but not found</text>
+    <!-- Code Box -->
+    <text x="16" y="112" class="text-muted" font-size="11px" font-weight="bold">RESPONSE BODY</text>
+    <rect x="16" y="122" width="423" height="120" class="code-bg" />
+    <text x="30" y="152" fill="#cccccc" class="mono" font-size="13px">{</text>
+    <text x="50" y="180" class="json-key">"error"</text>
+    <text x="105" y="180" fill="#cccccc" class="mono" font-size="13px">:</text>
+    <text x="120" y="180" class="json-val-str">"Post not found"</text>
+    <text x="30" y="208" fill="#cccccc" class="mono" font-size="13px">}</text>
+  </g>
+
+  <!-- Card 4: 400 Bad Request -->
+  <g transform="translate(515, 375)">
+    <rect width="455" height="265" rx="8" class="card-bg" />
+    <path d="M 0 8 Q 0 0 8 0 L 447 0 Q 455 0 455 8 L 455 42 L 0 42 Z" class="card-head" />
+    <!-- Method Badge -->
+    <rect x="14" y="12" width="44" height="20" class="badge-post" />
+    <text x="21" y="26" class="badge-post-text">POST</text>
+    <text x="68" y="27" fill="#ffffff" class="mono" font-size="13px">/posts/abc/vote</text>
+    <!-- Status Badge -->
+    <rect x="318" y="10" width="123" height="22" class="badge-400-bg" />
+    <text x="326" y="25" class="badge-400-text">400 Bad Request</text>
+    <!-- Metadata -->
+    <text x="16" y="65" class="text-muted">Scenario: Invalid non-numeric post ID ('abc')</text>
+    <text x="16" y="83" class="text-muted">Validation Guard: isNaN(parseInt(req.params.id))</text>
+    <!-- Code Box -->
+    <text x="16" y="112" class="text-muted" font-size="11px" font-weight="bold">RESPONSE BODY</text>
+    <rect x="16" y="122" width="423" height="120" class="code-bg" />
+    <text x="30" y="152" fill="#cccccc" class="mono" font-size="13px">{</text>
+    <text x="50" y="180" class="json-key">"error"</text>
+    <text x="105" y="180" fill="#cccccc" class="mono" font-size="13px">:</text>
+    <text x="120" y="180" class="json-val-str">"Invalid post ID"</text>
+    <text x="30" y="208" fill="#cccccc" class="mono" font-size="13px">}</text>
+  </g>
+</svg>
